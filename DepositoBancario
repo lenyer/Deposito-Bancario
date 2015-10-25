@@ -1,0 +1,117 @@
+import java.util.Scanner;
+
+public class DepositoBancario
+{
+    private long numCuenta;
+    private long cantidadAPagar;
+    private long numReferencia;
+    private String banco;
+    private String nombreCuenta;
+
+    public DepositoBancario( )
+    {
+        this( 0l, 0l, 0l, " ", " " );
+    }
+
+    public DepositoBancario( long numCuenta, long cantidadAPagar, long numReferencia, String banco, String nombreCuenta )
+    {
+        this.numCuenta = numCuenta;
+        this.cantidadAPagar = cantidadAPagar;
+        this.numReferencia = numReferencia;
+        this.banco = banco;
+        this.nombreCuenta = nombreCuenta;
+    }
+
+    public DepositoBancario( DepositoBancario db )
+    {
+        this( db.numcuenta, db.cantidadAPagar, db.numReferencia, db.banco, db.nombreCuenta );
+    }
+
+    public void leer(  String s )
+    {
+        Scanner sc = new Scanner( System.in );
+        s = sc.nextLine( );
+    }
+
+    public void leer( long l )
+    {
+        Scanner sc = new Scanner( System.in );
+        l = sc.nextLong( );
+    }
+
+    public void setCuentaBanco( )
+    {
+        setBanco( );
+        setNombreCuenta( );
+        setNumCuenta( );
+        setReferencia( );
+    }
+
+    public void setPago( long pago )
+    {
+        cantidadAPagar = pago;
+    }
+
+    public void setBanco( )
+    {
+        System.out.println( "Ingrese el nombre del banco" );
+        leer( banco );
+    }
+
+    public String getBanco( )
+    {
+        return banco;
+    }
+
+    public void setNumCuenta( )
+    {
+        System.out.println( "Ingrese el numero de cuenta" );
+        leer( numCuenta );
+    }
+
+    public long getNumCuenta( )
+    {
+        return numCuenta;
+    }
+
+    public void setNombreCuenta( )
+    {
+        System.out.println( "Ingrese el nombre de la cuenta" );
+        leer( nombreCuenta );
+    }
+
+    public String nombreCuenta( )
+    {
+        return nombreCuenta;
+    }
+
+    public void setReferencia( )
+    {
+        System.out.println( "Ingrese la referencia bancaria" );
+        leer( numReferencia );
+    }
+
+    public long getReferencia( )
+    {
+        return numReferencia;
+    }
+
+    public imprimirBoucher( )
+    {
+        System.out.println( "Banco: " + banco );
+        System.out.println( "Nombre de la cuenta: " + nombreCuenta );
+        System.out.println( "Numero de cuenta: " + numcuenta );
+        System.out.println( "Referencia" + numReferencia );
+        System.out.println( "Cantidad a pagar: " + cantidadAPagar );
+    }
+
+    public void destruir( )
+    {
+        this.numCuenta = 0l;
+        this.cantidadAPagar = 0l;
+        this.numReferencia = 0l;
+        this.banco = "";
+        this.nombreCuenta = "";
+        System.gc( );
+    }
+}
